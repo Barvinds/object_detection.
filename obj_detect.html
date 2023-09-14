@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Object Detection</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+
+<style>
+    /* Make the image responsive */
+#camera-frame {
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
+h1{
+     text-align: center;
+     text-shadow: 20px;
+}
+</style>
+<body>
+    <h1>Object Detection</h1>
+    
+    <!-- <button id="start-button">Start Detection</button> -->
+    <button id="stop-button">Stop Detection</button>
+
+    <!-- Add an image element to display the camera frame -->
+    <img id="camera-frame" src="http://127.0.0.1:5000/video_feed" alt="Camera Feed">
+
+    <script>
+        $(document).ready(function () {
+            const imgElement = document.getElementById("camera-frame");
+       
+
+        //     $("#start-button").click(function () {
+        //         $.get("http://127.0.0.1:5000/start_detection", function (data) {
+        //             console.log(data);
+        //             // Update the image source with the camera feed
+        //             imgElement.src = "/video_feed";
+        //         });
+        //     });
+
+            $("#stop-button").click(function () {
+                $.get("http://127.0.0.1:5000/stop_detection", function (data) {
+                    console.log(data);
+                    // Clear the image source
+                    imgElement.src = "";
+                });
+            });
+        });
+    </script>
+</body>
+</html>
