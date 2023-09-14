@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Dashboard</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+
+
+
+
+   
+        
+    
+    <header>
+	
+        <nav>
+            <div class="logo"> <h1 style="font-size: 40px;"> AI EYES </h1> </div>
+            <div class="menu-toggle">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <div class="menu">
+                <a href="#" class="home">HOME</a>
+                <a href="#" class="instruction">INSTRUCTION</a>
+                <a href="#" class="help">HELP</a>
+                <a href="#" class="contact">CONTACT</a>
+            </div>
+        </nav>
+        
+            <main>
+                <section>
+                    <h3>Welcome To AI eyes</h3>
+                    <h1>HEAR AND UNDERSTAND <span class="change_content"> </span> <span style="margin-top: -10px;"> | </span> </h1>
+                    <p>"YOU CAN SEE AND UNDERSTAND!"</p>
+                    <a href="obj_detect.html" class="btnone">Object Detection</a><br><br><br>
+                    <a href="text translating.html" class="btntwo">Text Translating</a><br><br><br>
+                    <a href="speech translating.html" class="btnthree">Speech Translating</a><br><br>
+                </section>
+            </main>
+        
+        
+        </header>
+        
+
+    <script>
+        const menuToggle = document.querySelector('.menu-toggle');
+const menu = document.querySelector('.menu');
+
+menuToggle.addEventListener('click', () => {
+    menu.classList.toggle('show');
+});
+
+          const recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+        recognition.continuous = true;
+        recognition.interimResults = false;
+        
+        recognition.onresult = function(event) {
+            const transcript = event.results[0][0].transcript.toLowerCase();
+
+            if (transcript.includes("object detection")) {
+                window.location.href = "object detection.html";
+                alert("Opening Object Detection");
+            } else if (transcript.includes("text translating")) {
+                window.location.href = "object detection.html";
+                alert("Opening Text Translation");
+            } else if (transcript.includes("speech translating")) {
+                window.location.href = "object detection.html";
+                alert("Opening Speech Translation");
+            }
+        };
+
+        recognition.onend = function() {
+            // recognition.start();
+        };
+
+        recognition.start();
+
+
+    </script>
+       
+    
+</body>
+</html>
+
+
+
